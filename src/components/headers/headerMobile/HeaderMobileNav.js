@@ -27,11 +27,12 @@ export default class HeaderMobileNav extends Component {
 
     render() {
         const {subTopics, mobileNav, setActiveSubTopic} = this.props;
+        let lastIndex = subTopics.length;
         return (
             <div className="header-mobile-nav">
                 {mobileNav.firstIndex > 0 ?
                     <div
-                        className="header-mobile-nav-arrow"
+                        className="header-mobile-nav-arrow-left"
                         onClick={() => this.leftArrowClick()}>
                         <img src={leftArrow} alt="prev"/>
                     </div> : null}
@@ -49,6 +50,7 @@ export default class HeaderMobileNav extends Component {
                                     containerHeight={60}
                                     fontSize={14}
                                     setActiveSubTopic={setActiveSubTopic}
+                                    lastIndex={lastIndex}
                                 />
                             )}
                         </g>
@@ -56,7 +58,7 @@ export default class HeaderMobileNav extends Component {
                 </div>
                 {mobileNav.lastIndex < subTopics.length ?
                     <div
-                        className="header-mobile-nav-arrow"
+                        className="header-mobile-nav-arrow-right"
                         onClick={() => this.rightArrowClick()}>
                         <img src={rightArrow} alt="next"/>
                     </div> : null}

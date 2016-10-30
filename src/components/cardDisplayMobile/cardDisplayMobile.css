@@ -1,0 +1,7 @@
+.card-display-mobile {
+    display: flex;
+    justify-content: center;
+    flex-basis: 400px;
+    align-self: auto;
+    align-items: center;
+}

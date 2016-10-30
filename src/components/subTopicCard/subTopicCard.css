@@ -1,33 +1,41 @@
-.subTopic-card {
+.subTopic-card-mobile {
     height: 90%;
     width: 80%;
     display: flex;
     flex-direction: column;
     box-shadow: 1px 5px 5px #888888;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
-.card-display {
+.subTopic-card-desktop {
+    width: 30%;
+    height: 300px;
     display: flex;
-    justify-content: center;
-    flex-basis: 400px;
-    align-self: auto;
+    flex-direction: column;
+    box-shadow: 1px 5px 5px #888888;
+    justify-content: space-around;
     align-items: center;
+    margin-top: 5%;
+}
+
+.subTopic-card-title-tick {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 }
 
 .subTopic-card-title {
     color: white;
-    padding-top: 15%;
 }
 
 .subTopic-card-tick {
     width: 50px;
-    padding-top: 5%;
 }
 
 .subTopic-card-button {
-    margin-top: 20%;
+    top: 20%;
     justify-self: flex-end;
     height: 60px;
     width: 120px;

@@ -3,8 +3,9 @@ import './App.css';
 import {subTopics, topic} from './seedData';
 import HeaderMobile from './components/headers/headerMobile/HeaderMobile';
 import HeaderDesktop from './components/headers/headerDesktop/HeaderDesktop';
-import FooterMobile from './components/footerMobile/FooterMobile';
-import CardDisplay from './components/cardDisplay/CardDisplay';
+import Footer from './components/Footer/Footer';
+import CardDisplayMobile from './components/cardDisplayMobile/CardDisplayMobile';
+import CardDisplayDesktop from './components/cardDisplayDesktop/CardDisplayDesktop';
 
 class App extends Component {
 
@@ -14,6 +15,8 @@ class App extends Component {
         super(props);
         this.state = {
             display: window.innerWidth < this.maxWidthMobile ? 'mobile' : 'desktop',
+            activateClicked: true,
+            completedClicked: false,
             mobileNav: {
                 firstIndex: '',
                 lastIndex: '',
@@ -32,6 +35,7 @@ class App extends Component {
             this.setDisplay();
             this.setMobileNavIndexRange();
         });
+        this.setState({activateClicked: false});
     }
 
     setDisplay() {
@@ -84,12 +88,20 @@ class App extends Component {
 
     setActiveSubTopic(index) {
         this.setState({
-            subTopics: this.state.subTopics.map(subTopic => {return {...subTopic, active: subTopic.index === index}})
+            activateClicked: true,
+            subTopics: this.state.subTopics.map(subTopic => {
+                return {...subTopic, active: subTopic.index === index}
+            })
         })
+    }
+
+    resetActionStates() {
+        this.setState({activateClicked: false, completedClicked: false});
     }
 
     setCompleteSubTopic(index) {
         this.setState({
+            completedClicked: this.state.display === 'mobile',
             subTopics: this.state.subTopics.map(subTopic => {
                 if (subTopic.index === index) {
                     subTopic.completed = true;
@@ -100,7 +112,7 @@ class App extends Component {
     }
 
     render() {
-        const {display, subTopics, topic, mobileNav} = this.state;
+        const {display, subTopics, topic, mobileNav, activateClicked, completedClicked} = this.state;
         return (
             <div className={display === 'mobile' ? 'App-mobile' : 'App-desktop'}>
                 {display === 'mobile' ?
@@ -114,13 +126,24 @@ class App extends Component {
                     />
                     : <HeaderDesktop topic={topic}/>}
 
-                <CardDisplay
-                    subTopics={subTopics}
-                    display={display}
-                    setCompleteSubTopic={(index) => this.setCompleteSubTopic(index)}
-                />
+                {display === 'mobile' ?
+                    <CardDisplayMobile
+                        subTopics={subTopics}
+                        display={display}
+                        setCompleteSubTopic={(index) => this.setCompleteSubTopic(index)}
+                        activateClicked={activateClicked}
+                        completedClicked={completedClicked}
+                        resetActionStates={() => this.resetActionStates()}
+                    />
+                    :
+                    <CardDisplayDesktop
+                        subTopics={subTopics}
+                        display={display}
+                        setCompleteSubTopic={(index) => this.setCompleteSubTopic(index)}
+                    />
+                }
 
-                {display === 'mobile' ? <FooterMobile/> : null}
+                <Footer/>
             </div>
         );
     }

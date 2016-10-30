@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const SubTopicNavItem = ({subTopic, circleRadius, circleSpacing, containerHeight, fontSize, index, setActiveSubTopic}) => {
+const SubTopicNavItem = ({subTopic, circleRadius, circleSpacing, containerHeight, fontSize, index, setActiveSubTopic, lastIndex}) => {
 
     const circleCenterX = (index + 1) * (2 * circleRadius + circleSpacing);
     const circleCenterY = containerHeight / 2;
@@ -22,19 +22,20 @@ const SubTopicNavItem = ({subTopic, circleRadius, circleSpacing, containerHeight
                     r={circleRadius}
                 >
                 </circle>
-                <line
-                    x1={circleCenterX + circleRadius}
-                    y1={circleCenterY}
-                    x2={circleCenterX + circleSpacing + circleRadius}
-                    y2={circleCenterY}
-                    stroke={subTopic.completed ? completedStoke : nonCompletedStoke}
-                    strokeWidth={2}
-                />
+                {subTopic.index !== lastIndex ?
+                    <line
+                        x1={circleCenterX + circleRadius}
+                        y1={circleCenterY}
+                        x2={circleCenterX + circleSpacing + circleRadius}
+                        y2={circleCenterY}
+                        stroke={subTopic.completed ? completedStoke : nonCompletedStoke}
+                        strokeWidth={2}
+                    /> : null}
                 <text
                     textAnchor="middle"
                     fill={textColour}
                     x={circleCenterX}
-                    y={circleCenterY + fontSize/2}
+                    y={circleCenterY + fontSize / 2}
                     fontSize={fontSize}
                 >{subTopic.index}</text>
             </g>
@@ -47,7 +48,7 @@ const SubTopicNavItem = ({subTopic, circleRadius, circleSpacing, containerHeight
                     fill="none"
                     cy={circleCenterY}
                     cx={circleCenterX}
-                    r={circleRadius + circleSpacing/2}>
+                    r={circleRadius + circleSpacing / 2}>
                 </circle>
                 : null}
         </g>
@@ -59,7 +60,8 @@ SubTopicNavItem.propTypes = {
     circleRadius: PropTypes.number.isRequired,
     circleSpacing: PropTypes.number.isRequired,
     containerHeight: PropTypes.number.isRequired,
-    fontSize: PropTypes.number.isRequired
+    fontSize: PropTypes.number.isRequired,
+    lastIndex: PropTypes.number.isRequired
 };
 
 export default SubTopicNavItem;

@@ -10,7 +10,7 @@ const HeaderDesktop = ({topic}) => (
         </div>
 
         <div className="header-desktop-topic">
-            {topic.title}
+            <h2>{topic.title}</h2>
         </div>
 
         <div>
