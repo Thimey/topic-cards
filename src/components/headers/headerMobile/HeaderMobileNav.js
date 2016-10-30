@@ -1,10 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import leftArrow from '../../../assets/left.svg';
 import rightArrow from '../../../assets/right.svg';
 import SubTopicNavItem from './SubTopicNavItem';
 import './headerMobileNav.css';
 
 export default class HeaderMobileNav extends Component {
+    static propTypes = {
+        subTopics: PropTypes.array.isRequired,
+        mobileNav: PropTypes.object.isRequired,
+        updateMobileNavIndexRange: PropTypes.func.isRequired,
+        setMobileNavIndexRange: PropTypes.func.isRequired,
+        setActiveSubTopic: PropTypes.func.isRequired
+    };
 
     componentDidMount() {
         const {setMobileNavIndexRange} = this.props;

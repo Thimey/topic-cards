@@ -4,7 +4,6 @@ import './cardDisplayDesktop.css';
 
 const CardDisplayDesktop = ({subTopics, display, setCompleteSubTopic}) => (
     <div className="card-display-desktop">
-
         {subTopics.map(subTopic =>
             <SubTopicCard
                 key={subTopic.index}

@@ -31,7 +31,10 @@ const HeaderMobile = ({topic, subTopics, mobileNav, updateMobileNavIndexRange, s
 HeaderMobile.propTypes = {
     topic: PropTypes.object.isRequired,
     subTopics: PropTypes.array.isRequired,
-    mobileNav: PropTypes.object.isRequired
+    mobileNav: PropTypes.object.isRequired,
+    updateMobileNavIndexRange: PropTypes.func.isRequired,
+    setMobileNavIndexRange: PropTypes.func.isRequired,
+    setActiveSubTopic: PropTypes.func.isRequired
 };
 
 export default HeaderMobile;

@@ -61,7 +61,10 @@ SubTopicNavItem.propTypes = {
     circleSpacing: PropTypes.number.isRequired,
     containerHeight: PropTypes.number.isRequired,
     fontSize: PropTypes.number.isRequired,
-    lastIndex: PropTypes.number.isRequired
+    lastIndex: PropTypes.number.isRequired,
+    index: PropTypes.number.isRequired,
+    setActiveSubTopic: PropTypes.func.isRequired
 };
 
 export default SubTopicNavItem;
+

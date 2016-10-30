@@ -18,7 +18,8 @@ const CardDisplayMobile = ({subTopics, display, setCompleteSubTopic, activateCli
 CardDisplayMobile.propTypes = {
     subTopics: PropTypes.array.isRequired,
     display: PropTypes.string.isRequired,
-    setCompleteSubTopic: PropTypes.func
+    setCompleteSubTopic: PropTypes.func.isRequired,
+    activateClicked: PropTypes.bool.isRequired
 };
 
 export default CardDisplayMobile;

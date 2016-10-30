@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import graph from '../../assets/linegraph.svg';
 import pie from '../../assets/piechart.svg';
 import tick from '../../assets/tick.svg';
@@ -11,5 +11,9 @@ const Footer = ({display}) => (
         <div><img src={pie} alt="pie"/></div>
     </div>
 );
+
+Footer.prototypes = {
+    display: PropTypes.string.isRequired
+};
 
 export default Footer;
