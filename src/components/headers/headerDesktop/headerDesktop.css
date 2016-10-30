@@ -1,0 +1,8 @@
+.header-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    color: white;
+    background: #BA77FF;
+}

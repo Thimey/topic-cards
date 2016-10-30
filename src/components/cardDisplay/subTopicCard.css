@@ -1,0 +1,49 @@
+.subTopic-card {
+    height: 90%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 5px 5px #888888;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-display {
+    display: flex;
+    justify-content: center;
+    flex-basis: 400px;
+    align-self: auto;
+    align-items: center;
+}
+
+.subTopic-card-title {
+    color: white;
+    padding-top: 15%;
+}
+
+.subTopic-card-tick {
+    width: 50px;
+    padding-top: 5%;
+}
+
+.subTopic-card-button {
+    margin-top: 20%;
+    justify-self: flex-end;
+    height: 60px;
+    width: 120px;
+    border-radius: 40px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    background-color: #50D2C2;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.subTopic-card-button-text {
+    color: white;
+    margin: auto;
+}

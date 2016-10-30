@@ -2,7 +2,7 @@
     background: #BA77FF;
     display: flex;
     flex-direction: column;
-
+    flex-basis: 120px;
 }
 
 .header-mobile-top {
@@ -11,10 +11,6 @@
     align-items: center;
     padding: 5%;
     color: white;
-}
-
-.header-mobile-top-child {
-
 }
 
 .header-mobile-avatar {

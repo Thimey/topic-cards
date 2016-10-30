@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import {subTopics, topic} from './seedData';
 import HeaderMobile from './components/headers/headerMobile/HeaderMobile';
+import HeaderDesktop from './components/headers/headerDesktop/HeaderDesktop';
 import FooterMobile from './components/footerMobile/FooterMobile';
+import CardDisplay from './components/cardDisplay/CardDisplay';
 
 class App extends Component {
 
@@ -41,13 +43,15 @@ class App extends Component {
     }
 
     setMobileNavIndexRange() {
-        this.setState({
-            mobileNav: {
-                ...this.state.mobileNav,
-                firstIndex: 0,
-                lastIndex: this.getMaxSubTopicDisplay(document.getElementById('header-mobile-nav-svg-container').offsetWidth)
-            }
-        });
+        if (this.state.display === 'mobile') {
+            this.setState({
+                mobileNav: {
+                    ...this.state.mobileNav,
+                    firstIndex: 0,
+                    lastIndex: this.getMaxSubTopicDisplay(document.getElementById('header-mobile-nav-svg-container').offsetWidth)
+                }
+            });
+        }
     }
 
     updateMobileNavIndexRange(direction) {
@@ -84,6 +88,17 @@ class App extends Component {
         })
     }
 
+    setCompleteSubTopic(index) {
+        this.setState({
+            subTopics: this.state.subTopics.map(subTopic => {
+                if (subTopic.index === index) {
+                    subTopic.completed = true;
+                }
+                return subTopic;
+            })
+        });
+    }
+
     render() {
         const {display, subTopics, topic, mobileNav} = this.state;
         return (
@@ -97,7 +112,13 @@ class App extends Component {
                         setMobileNavIndexRange={() => this.setMobileNavIndexRange()}
                         setActiveSubTopic={(index) => this.setActiveSubTopic(index)}
                     />
-                    : null}
+                    : <HeaderDesktop topic={topic}/>}
+
+                <CardDisplay
+                    subTopics={subTopics}
+                    display={display}
+                    setCompleteSubTopic={(index) => this.setCompleteSubTopic(index)}
+                />
 
                 {display === 'mobile' ? <FooterMobile/> : null}
             </div>

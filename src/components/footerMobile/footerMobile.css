@@ -5,4 +5,5 @@
     align-items: center;
     padding: 5%;
     color: white;
+    flex-basis: 25px;
 }
