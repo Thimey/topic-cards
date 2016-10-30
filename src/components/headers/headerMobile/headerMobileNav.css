@@ -1,0 +1,18 @@
+.header-mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% 5% 5%;
+}
+
+.header-mobile-nav-topics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 3;
+}
+
+.topicCircle {
+    border: solid 1px;
+    border-radius: 50px;
+}

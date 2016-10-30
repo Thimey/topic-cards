@@ -1,0 +1,22 @@
+.header-mobile {
+    background: #BA77FF;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.header-mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    color: white;
+}
+
+.header-mobile-top-child {
+
+}
+
+.header-mobile-avatar {
+    height: 35px;
+}

@@ -1,0 +1,8 @@
+.footer-mobile {
+    background-color: #6563A4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5%;
+    color: white;
+}
